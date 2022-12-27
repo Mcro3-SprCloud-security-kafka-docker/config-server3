@@ -1,0 +1,36 @@
+server:
+  port: 9082
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/java_thaycuong_mvc_file
+    username: root
+    password: root@123
+
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: quanph1998@gmail.com
+    password: ogdakuavilkvyzaq
+    port: 587
+    test-connection: false
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          #          ssl:
+          #            enable: true
+          starttls:
+            enable: true
+
+  kafka:
+    consumer:
+      auto-offset-reset: latest
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      #    bootstrap-servers: localhost:9092,localhost:9093,localhost:9094 // for cluster
+    bootstrap-servers: localhost:9092
+    producer:
+      acks: -1
+#      retries: 1
+      value-serializer: org.apache.kafka.common.serialization.ByteArrayDeserializer

@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: main_application
+        uri: lb://main-application
+        predicates:
+          - Path=/user/**
+        filters:
+          - StripPrefix=1

@@ -1,0 +1,69 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show-sql: false
+
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    generate-ddl: true
+    defer-datasource-initialization: true
+
+  servlet:
+    multipart:
+      #      Max size of 1 file that we upload to server backend
+      max-file-size: 10MB
+      #      Max size of 1 request from client to server backend
+      #      an example, 1 request that contain many files, and params but total size of those
+      #      must be less than 20MB
+      max-request-size: 20MB
+
+  # config for multi languages: vi, cn, en
+  messages:
+    basename: lang/message
+    encoding: UTF-8
+
+# swagger
+springdoc:
+  swagger-ui:
+    path: /sw
+
+# config for eureka server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9999/eureka
+  instance:
+    prefer-ip-adress: true
+
+#config for logging
+logging:
+  level:
+    ROOT: info
+    web.log.error.server: ERROR
+    web.log.debug.server: DEBUG
+    web.log.info.server: INFO
+    web.log.login.and.logout: INFO
+  file:
+    #    Tên file log
+    name: logs/be.log
+  logback:
+    rollingpolicy:
+      #      kích thước file tối đa, vượt quá sẽ dừng và lưu sang file mới
+      max-file-size: 2MB
+      #      Số lượng file log cũ tối đa được lưu
+      max-history: 15
+
+# admin mornitor: actuator
+management:
+  health:
+    refresh:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'

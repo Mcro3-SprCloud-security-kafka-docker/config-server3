@@ -1,0 +1,25 @@
+server:
+  port: 9080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/java_thaycuong_mvc_file
+    username: root
+    password: root@123
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      acks: -1
+#      retries: 2
+      properties:
+        #        prevent duplidate event in more than 1 partitions
+        '[enable.idempotence]': true
+        '[request.timeout.ms]': 2000
+        #        Idempotence: prevent duplidated event only work when requests < 5 per sonnections.
+        '[max.in.flight.request.per.connecting]': 5
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+application:
+  avatar-folder: ./avatar
+

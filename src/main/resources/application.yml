@@ -1,0 +1,38 @@
+server:
+  port: 9025
+
+spring:
+  application:
+    name: mcro3-config-server
+
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:/shared
+  security:
+    user:
+      name: mcro3-configserver
+      password: mcro3-123
+
+# config for eureka server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9999/eureka
+  instance:
+    prefer-ip-adress: true
+
+management:
+  health:
+    refresh:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
