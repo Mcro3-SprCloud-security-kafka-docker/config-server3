@@ -38,13 +38,11 @@ eureka:
     prefer-ip-adress: true
 
 #config for logging
+# tree: buttom: debug - info - warning - error - fatal
 logging:
   level:
-    ROOT: info
-    web.log.error.server: ERROR
-    web.log.debug.server: DEBUG
-    web.log.info.server: INFO
-    web.log.login.and.logout: INFO
+#   Neu de ROOT: info => Khi log ra file chi ghi cac log muc info tro di (info, warning, error, fatal)
+    ROOT: error
   file:
     #    Tên file log
     name: logs/be.log
@@ -52,7 +50,7 @@ logging:
     rollingpolicy:
       #      kích thước file tối đa, vượt quá sẽ dừng và lưu sang file mới
       max-file-size: 2MB
-      #      Số lượng file log cũ tối đa được lưu
+      #      Số lượng ngay toi da luu file log tinh theo ngay file log do dc tao
       max-history: 15
 
 # admin mornitor: actuator
