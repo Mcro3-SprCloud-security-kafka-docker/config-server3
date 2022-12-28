@@ -41,7 +41,10 @@ eureka:
 # tree: buttom: debug - info - warning - error - fatal
 logging:
   level:
-#   Neu de ROOT: info => Khi log ra file chi ghi cac log muc info tro di (info, warning, error, fatal)
+#   Neu de ROOT: info => log ra FILE or CONSOLE chi co log muc INFO tro di (info, warning, error, fatal)
+#       thuong dung khi dang debug tai local
+#   Neu de ROOT: error => Khi log ra file or log ra console co cac log muc error tro di ( error, fatal)
+#       thuong ap dung cho server, production de giam thieu cac log can ghi cho server.
     ROOT: error
   file:
     #    Tên file log
@@ -49,7 +52,7 @@ logging:
   logback:
     rollingpolicy:
       #      kích thước file tối đa, vượt quá sẽ dừng và lưu sang file mới
-      max-file-size: 2MB
+      max-file-size: 3MB
       #      Số lượng ngay toi da luu file log tinh theo ngay file log do dc tao
       max-history: 15
 
