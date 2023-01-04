@@ -45,7 +45,7 @@ logging:
 #       thuong dung khi dang debug tai local
 #   Neu de ROOT: error => Khi log ra file or log ra console co cac log muc error tro di ( error, fatal)
 #       thuong ap dung cho server, production de giam thieu cac log can ghi cho server.
-    ROOT: error
+    ROOT: info
   file:
     #    Tên file log
     name: logs/be.log
